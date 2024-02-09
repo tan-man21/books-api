@@ -63,7 +63,7 @@ books.post('/', (req, res) => {
 books.get('/:id', (req, res) => {
     Book.findById(req.params.id)
         .then(foundBook => {
-            res.json(foundBook)
+            res.status(200).json({foundBook, status: 200})
         })
         .catch(err => {
             console.log('err', err)
